@@ -126,10 +126,13 @@ def handwriting():
     testlabel12Mat = np.mat(testlabel12).T
     testdata12Mat = testdataMat[testlabel12index]
     accuracy12, labelpredict12, numright12 = testSVM(svmClassifier12, testdata12Mat, testlabel12Mat)
-    # 统计被正确分类的样本数量，包括：
-    # 1、第一轮分类 -> 本来是-1结果被分为-1的个数。
-    #    第一轮分类结束后，本来是1结果被分类为1的样本进入第二轮分类；本来是-1结果本分类为1的样本已经分类错误，不参与第二轮分类
-    # 2、第二轮分类 -> -1、1被正确分类的个数。
+    """
+    统计被正确分类的样本数量，包括：
+    1、第一轮分类 -> 本来是-1结果被正确分类为-1的个数。
+       第一轮分类结束后，本来是1结果被正确分类为1的样本进入第二轮分类；
+       本来是-1结果本分类为1的样本已经分类错误，不参与第二轮分类
+    2、第二轮分类 -> -1、1被正确分类的个数。
+    """
     total_accuracy = (numright012 + num12 * accuracy12) / len(testlabelMat)
     print("\tFinal accuracy = %.3f%%" % (total_accuracy * 100))
 handwriting()
