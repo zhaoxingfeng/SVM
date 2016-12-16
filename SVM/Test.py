@@ -2,8 +2,8 @@
 """
 作者：zhaoxingfeng	日期：2016.12.15
 功能：两个测试样本集对SVM进行性能测试
-    1、UCI公共库Wine数据集（1，2），二分类
-    2、手写字数据库digits（0，1，2），多分类
+    1、UCI公共库wine数据集（1，2），二类分类
+    2、手写字数据库digits（0，1，2），多类分类
 """
 from __future__ import division
 import numpy as np
